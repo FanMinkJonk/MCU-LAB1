@@ -109,6 +109,9 @@ void clearNumberOnClock(int num){
 		case 11:
 			HAL_GPIO_WritePin(LED_YELLOW_1_GPIO_Port, LED_YELLOW_1_Pin, 1);
 			break;
+		default:
+			HAL_GPIO_WritePin(LED_YELLOW_1_GPIO_Port, LED_YELLOW_1_Pin, 1);
+			break;
 		}
 }
 
