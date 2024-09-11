@@ -1,0 +1,4 @@
+../Core/Src/ex5.c:12:6:init_ex5	8	static
+../Core/Src/ex5.c:33:6:run_ex5	8	static
+../Core/Src/ex5.c:84:6:display7SEG1	296	static
+../Core/Src/ex5.c:104:6:display7SEG2	296	static

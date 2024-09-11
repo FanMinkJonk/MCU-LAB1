@@ -21,7 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "ex3.h"
+#include "ex5.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -87,14 +87,14 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-  init_ex3();
+  init_ex5();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  run_ex3();
+	  run_ex5();
 	  HAL_Delay(1000);
     /* USER CODE END WHILE */
 
@@ -152,11 +152,18 @@ static void MX_GPIO_Init(void)
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, LED_RED_3_Pin|LED_YELLOW_3_Pin|LED_GREEN_3_Pin|LED_RED_1_Pin
                           |LED_YELLOW_1_Pin|LED_GREEN_1_Pin|LED_RED_2_Pin|LED_YELLOW_2_Pin
                           |LED_GREEN_2_Pin|LED_RED_4_Pin|LED_YELLOW_4_Pin|LED_GREEN_4_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOB, SEG71_1_Pin|SEG71_2_Pin|SEG72_3_Pin|SEG72_4_Pin
+                          |SEG72_5_Pin|SEG72_6_Pin|SEG72_7_Pin|SEG71_3_Pin
+                          |SEG71_4_Pin|SEG71_5_Pin|SEG71_6_Pin|SEG71_7_Pin
+                          |SEG72_1_Pin|SEG72_2_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : LED_RED_3_Pin LED_YELLOW_3_Pin LED_GREEN_3_Pin LED_RED_1_Pin
                            LED_YELLOW_1_Pin LED_GREEN_1_Pin LED_RED_2_Pin LED_YELLOW_2_Pin
@@ -168,6 +175,19 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : SEG71_1_Pin SEG71_2_Pin SEG72_3_Pin SEG72_4_Pin
+                           SEG72_5_Pin SEG72_6_Pin SEG72_7_Pin SEG71_3_Pin
+                           SEG71_4_Pin SEG71_5_Pin SEG71_6_Pin SEG71_7_Pin
+                           SEG72_1_Pin SEG72_2_Pin */
+  GPIO_InitStruct.Pin = SEG71_1_Pin|SEG71_2_Pin|SEG72_3_Pin|SEG72_4_Pin
+                          |SEG72_5_Pin|SEG72_6_Pin|SEG72_7_Pin|SEG71_3_Pin
+                          |SEG71_4_Pin|SEG71_5_Pin|SEG71_6_Pin|SEG71_7_Pin
+                          |SEG72_1_Pin|SEG72_2_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */
