@@ -15,6 +15,9 @@
 //Ex7
 void clearAllClock();
 
+//Ex8
+void setNumberOnClock(int);
+
 //---------- .................... ----------
 
 #endif /* INC_UTIL_H_ */
